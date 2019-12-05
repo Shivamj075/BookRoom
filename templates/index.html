@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if session.user_id %}
+<h3 align="center">Search for a book!</h3>
+<form action="/search" method="GET">
+   <div class="form-group">
+      <input type="text" class="form-control" name="book" autofocus aria-describedby="bookHelp" placeholder="ISBN, Title or Author">
+      <small id="bookHelp" class="form-text text-muted">Example: 1439152802, The Secret Keeper or Kate Mortan</small>
+   </div>
+   <p align="center">
+      <button class="btn btn-primary" type="submit">Search</button>
+   </p>
+</form>
+{% else %}
+<div class="row book-container">
+   <div class="col-sm-4">
+      <img src="http://covers.openlibrary.org/b/isbn/0778325342-M.jpg" width="200px">    
+   </div>
+   <div class="col-sm-8" align="center">
+      <h3 class="fas fa-sign-in-alt"  style="text-align:right"  > <a href="\login">Please LogIn First</a></h3>
+   </div>
+</div>
+{% endif %}
+{% endblock %}

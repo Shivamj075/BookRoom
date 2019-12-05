@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+<h3>Search Results</h3>
+
+<hr>
+<div class="results-container">
+    
+    {% for book in books %}
+        <br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{book['title']}}</h5>
+                  <p class="card-text">By: {{book['author']}}</p>
+                  <p class="card-text">Year: {{book['year']}}</p>
+                  <p class="card-text">ISBN: {{book['isbn']}}</p>
+                <a href="/detail/{{book['isbn']}}" class="btn btn-primary">Book Page</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">{{book['title']}}</h5>
+                  <p class="card-text">By: {{book['author']}}</p>
+                  <p class="card-text">Year: {{book['year']}}</p>
+                  <p class="card-text">ISBN: {{book['isbn']}}</p>
+                <a href="#" class="btn btn-primary">Book Page</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
